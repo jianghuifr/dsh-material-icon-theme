@@ -1,0 +1,76 @@
+{
+  "name": "@jianghuifr/dsh-material-icon-theme-icon",
+  "version": "0.1.0",
+  "description": "Material Icon Theme file and folder icons for the DeepSeek Harness Web UI: the Files tree always, plus workspace headers, the composer workspace chip and document preview tabs (switchable).",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "material-icon-theme",
+    "file-icons",
+    "ui",
+    "icons"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "icon": "icon.svg",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "lib/",
+    "locale/",
+    "docs/",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "assets/",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "test": "node --test test/*.test.mjs",
+    "check": "node scripts/check.mjs",
+    "verify": "npm run check && npm run lint && npm test",
+    "vendor-icons": "node scripts/vendor-icons.mjs",
+    "prepublishOnly": "npm run verify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jianghuifr/dsh-material-icon-theme-icon.git"
+  },
+  "homepage": "https://github.com/jianghuifr/dsh-material-icon-theme-icon#readme",
+  "bugs": {
+    "url": "https://github.com/jianghuifr/dsh-material-icon-theme-icon/issues"
+  },
+  "author": "jianghuifr",
+  "engines": {
+    "node": ">=22.19.0",
+    "dsh": ">=0.2.2-rc.1"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [],
+      "immediately": false
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.10.0"
+  }
+}

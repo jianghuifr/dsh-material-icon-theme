@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Material icon theme">
+  <rect x="22" y="6" width="30" height="38" rx="5.5" fill="#2196f3"/>
+  <path d="M44 6h8v8z" fill="#fff" opacity=".55"/>
+  <rect x="17" y="12" width="30" height="38" rx="5.5" fill="#43a047"/>
+  <path d="M39 12h8v8z" fill="#fff" opacity=".55"/>
+  <rect x="12" y="18" width="30" height="38" rx="5.5" fill="#fbc02d"/>
+  <path d="M34 18h8v8z" fill="#fff" opacity=".55"/>
+</svg>
