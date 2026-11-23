@@ -1,6 +1,6 @@
 {
   "name": "@jianghuifr/dsh-material-icon-theme",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Material Icon Theme file and folder icons for the DeepSeek Harness Web UI: the Files tree always, plus workspace headers, the composer workspace chip and document preview tabs (switchable).",
   "keywords": [
     "dsh",
