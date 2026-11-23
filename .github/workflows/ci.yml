@@ -63,7 +63,7 @@ jobs:
           test -f /tmp/package/locale/en.json
           test -f /tmp/package/locale/zh.json
           test -f /tmp/package/icon.svg
-          grep -q '"@jianghuifr/dsh-material-icon-theme-icon"' /tmp/package/cordis.patch.yml
+          grep -q "@jianghuifr/dsh-material-icon-theme-icon" /tmp/package/cordis.patch.yml
           grep -q "@jianghuifr/dsh-material-icon-theme-icon" /tmp/package/lib/client.js
           test -f /tmp/package/assets/index.json
           test "$(ls /tmp/package/assets/icons/*.svg | wc -l)" -gt 1000
