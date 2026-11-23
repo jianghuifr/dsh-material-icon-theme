@@ -1,5 +1,5 @@
 {
-  "name": "@jianghuifr/dsh-material-icon-theme-icon",
+  "name": "@jianghuifr/dsh-material-icon-theme",
   "version": "0.1.1",
   "description": "Material Icon Theme file and folder icons for the DeepSeek Harness Web UI: the Files tree always, plus workspace headers, the composer workspace chip and document preview tabs (switchable).",
   "keywords": [
@@ -42,11 +42,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jianghuifr/dsh-material-icon-theme-icon.git"
+    "url": "git+https://github.com/jianghuifr/dsh-material-icon-theme.git"
   },
-  "homepage": "https://github.com/jianghuifr/dsh-material-icon-theme-icon#readme",
+  "homepage": "https://github.com/jianghuifr/dsh-material-icon-theme#readme",
   "bugs": {
-    "url": "https://github.com/jianghuifr/dsh-material-icon-theme-icon/issues"
+    "url": "https://github.com/jianghuifr/dsh-material-icon-theme/issues"
   },
   "author": "jianghuifr",
   "engines": {

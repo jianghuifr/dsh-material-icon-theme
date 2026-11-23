@@ -14,7 +14,8 @@ import vm from 'node:vm'
 const packageJson = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'))
 const clientSource = readFileSync(new URL('../lib/client.js', import.meta.url), 'utf8')
 const LEGACY_KEY = 'dsh-material-icon-theme:features'
-const STORAGE_KEY = '@jianghuifr/dsh-material-icon-theme-icon:features'
+const OLD_PACKAGE_KEY = '@jianghuifr/dsh-material-icon-theme-icon:features'
+const STORAGE_KEY = '@jianghuifr/dsh-material-icon-theme:features'
 
 function createStorage(entries = {}) {
   const map = new Map(Object.entries(entries).map(([key, value]) => [key, String(value)]))
@@ -269,7 +270,7 @@ test('client bundle registers the package id and runs no factory side effects', 
     console,
   })
   assert.equal(dom.window.__captured.id, packageJson.name)
-  assert.equal(dom.window.__captured.id, '@jianghuifr/dsh-material-icon-theme-icon')
+  assert.equal(dom.window.__captured.id, '@jianghuifr/dsh-material-icon-theme')
   assert.equal(dom.styles.length, 0)
   assert.equal(dom.observers.length, 0)
 })
@@ -280,7 +281,7 @@ test('client exports the icon plugin contract and registers its row', () => {
   assert.equal(typeof exports.apply, 'function')
   assert.deepEqual(events.slotOwners, ['plugins.row.config'])
   const row = events.registrations[0]
-  assert.equal(row.options.key, '@jianghuifr/dsh-material-icon-theme-icon#dsh-material-icon-theme-icon')
+  assert.equal(row.options.key, '@jianghuifr/dsh-material-icon-theme#dsh-material-icon-theme')
   assert.equal(row.options.locale, 'dshMaterialIconThemeIcon')
 })
 
@@ -316,14 +317,18 @@ test('toggling the switch persists it and a fresh bundle reads it back', () => {
   assert.equal(switches(settingsView(reloaded.events)({ view: 'page', t: key => 't:' + key }))[0].props['aria-checked'], false)
 })
 
-test('the pre-split shared store value is migrated when no own value exists', () => {
+test('the previous package name and merged-plugin stores are migrated when no own value exists', () => {
+  const oldPackage = createStorage({ [OLD_PACKAGE_KEY]: JSON.stringify({ extraIcons: false }) })
+  const previous = applyPlugin({ storage: oldPackage })
+  assert.equal(switches(settingsView(previous.events)({ view: 'page', t: key => 't:' + key }))[0].props['aria-checked'], false)
+
   const legacy = createStorage({ [LEGACY_KEY]: JSON.stringify({ extraIcons: false, styleTweaks: true, syntaxExtras: true }) })
   const { events } = applyPlugin({ storage: legacy })
   const page = settingsView(events)({ view: 'page', t: key => 't:' + key })
   assert.equal(switches(page)[0].props['aria-checked'], false)
-  // A value in the package's own store wins over the legacy one.
+  // A value in the package's own store wins over the legacy ones.
   const own = createStorage({
-    [LEGACY_KEY]: JSON.stringify({ extraIcons: false }),
+    [OLD_PACKAGE_KEY]: JSON.stringify({ extraIcons: false }),
     [STORAGE_KEY]: JSON.stringify({ extraIcons: true }),
   })
   const fresh = applyPlugin({ storage: own })
@@ -334,7 +339,7 @@ test('dispose removes the style sheet and disconnects the observer', () => {
   const { events, dom } = applyPlugin()
   assert.equal(dom.styles.length, 1)
   assert.equal(dom.observers.length, 1)
-  const runtime = events.effects.find(entry => entry.label === 'dsh-material-icon-theme-icon: icon runtime')
+  const runtime = events.effects.find(entry => entry.label === 'dsh-material-icon-theme: icon runtime')
   assert.ok(runtime !== undefined)
   runtime.disposer()
   assert.equal(dom.observers[0].disconnected, true)

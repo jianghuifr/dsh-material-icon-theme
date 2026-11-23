@@ -15,7 +15,7 @@
 
    之后 `release.yml` 才能接管后续版本。
 3. **配置 trusted publisher。** npmjs.com → 包页面 → Settings → Trusted Publisher：
-   填本仓库（`jianghuifr/dsh-material-icon-theme-icon`）、workflow 文件名 `release.yml`，
+   填本仓库（`jianghuifr/dsh-material-icon-theme`）、workflow 文件名 `release.yml`，
    并把权限限制为 **stage-only**。这一步让 CI 用 OIDC 换凭据，无需 `NPM_TOKEN`。
 
 ## 每个版本
@@ -39,4 +39,4 @@ git push --follow-tags
 - 网页：npmjs.com → 账号 → **Staged Packages** → Approve
 - CLI：`npm stage list` 拿 stage id → `npm stage approve <stage-id>`
 
-批准后 `https://www.npmjs.com/package/@jianghuifr/dsh-material-icon-theme-icon` 才会更新。
+批准后 `https://www.npmjs.com/package/@jianghuifr/dsh-material-icon-theme` 才会更新。

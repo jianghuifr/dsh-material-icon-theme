@@ -1,7 +1,7 @@
-# @jianghuifr/dsh-material-icon-theme-icon
+# @jianghuifr/dsh-material-icon-theme
 
-[![CI](https://github.com/jianghuifr/dsh-material-icon-theme-icon/actions/workflows/ci.yml/badge.svg)](https://github.com/jianghuifr/dsh-material-icon-theme-icon/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/@jianghuifr/dsh-material-icon-theme-icon.svg)](https://www.npmjs.com/package/@jianghuifr/dsh-material-icon-theme-icon)
+[![CI](https://github.com/jianghuifr/dsh-material-icon-theme/actions/workflows/ci.yml/badge.svg)](https://github.com/jianghuifr/dsh-material-icon-theme/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/@jianghuifr/dsh-material-icon-theme.svg)](https://www.npmjs.com/package/@jianghuifr/dsh-material-icon-theme)
 
 为 DeepSeek Harness Web UI 提供 Material Icon Theme 文件与文件夹图标：右侧文件树始终使用 Material 图标，并可选覆盖左侧工作区标题、输入框工作区 chip 和文档预览 tab。
 
@@ -16,7 +16,7 @@
 ## 安装
 
 ```bash
-plugin_manager install_bundle target=@jianghuifr/dsh-material-icon-theme-icon
+plugin_manager install_bundle target=@jianghuifr/dsh-material-icon-theme
 ```
 
 也可以用本地目录：`plugin_manager install_bundle target=<本目录绝对路径>`。

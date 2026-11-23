@@ -13,8 +13,8 @@ import { basename, dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const NAME = '@jianghuifr/dsh-material-icon-theme-icon';
-const ROW_ID = 'dsh-material-icon-theme-icon';
+const NAME = '@jianghuifr/dsh-material-icon-theme';
+const ROW_ID = 'dsh-material-icon-theme';
 const HAS_ASSETS = true;
 const ICON_SIZE_LIMIT = 256 * 1024;
 const EXPECTED_COUNTS = {
